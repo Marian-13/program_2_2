@@ -41,6 +41,15 @@ module AdvancedMath
       ComputeNorm.new(vector: self).call
     end
 
+    def copy
+      Vector.new(elements: elements.map { |element| element })
+    end
+
+    def swap_elements!(first_index, second_index)
+      elements[first_index], elements[second_index] =
+        elements[second_index], elements[first_index]
+    end
+
     private
       def initialize_elements(elements, size)
         elements || generate_default_elements(size)
